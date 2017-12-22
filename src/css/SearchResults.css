@@ -1,0 +1,30 @@
+.formResults {
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  height: auto;
+  overflow-y: visible;
+  text-align: left;
+}
+
+.formResults li {
+  background-color: #bdbdbd;
+  /* #263238; */
+  transition: all 0.35s ease-out;
+}
+
+.formResults li:hover {
+  background-color: #e91d50;
+}
+
+.formResults a {
+  color: #fff;
+  display: flex;
+  padding: 20px 20px;
+}
+
+.resultPoster {
+  width: 100px;
+  margin-right: 20px;
+  align-self: center;
+}

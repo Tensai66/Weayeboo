@@ -1,0 +1,43 @@
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 25px;
+  }
+  
+  .navBar li {
+    margin-bottom: 10px;
+  }
+  
+  @media(min-width: 768px) {
+    .navBar {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+    .navBar li {
+      margin: 0 10px;
+    }
+  }
+  
+  @media(min-width: 992px) {
+    header {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0;
+    }
+    .navBar li {
+      margin: 0 0 0 20px;
+    }
+  }
+  
+  h4 {
+    font-weight: 800;
+    transition: all 0.35s ease-out;
+    padding-left: 10px;
+  }
+  
+  a h4:hover {
+    color: #e91d50;
+  }

@@ -1,0 +1,24 @@
+html {
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  .homeContainer {
+    width: 70%;
+    margin: 0 auto;
+    /* border: 2px solid blue; */
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  ul a {
+    font-weight: 800;
+  }
