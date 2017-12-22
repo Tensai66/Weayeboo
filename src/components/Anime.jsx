@@ -7,16 +7,15 @@ import '../css/Anime.css';
 class Anime extends Component {
   state = {
     anime: {
-      genres: [],
-      videos: {
-        results: []
+      attributes: {
+        posterImage: []
       }
     }
   }
 
   getData = () => {
     const animeId = window.location.pathname.substring(7);
-
+    // console.log(animeId);
     fetch(`https://kitsu.io/api/edge/anime/${animeId}`)
     .then(response => {
       if (response.status !== 200) {
@@ -25,8 +24,10 @@ class Anime extends Component {
       }
 
       response.json().then(data => {
-        const anime = data;
+        const anime = data.data;
         this.setState({ anime });
+        console.log(anime);
+        // console.log(this.state.anime.attributes.posterImage.original);
       });
 
     })
@@ -47,38 +48,39 @@ class Anime extends Component {
 
   render() {
     return (
-      <div className="movieContainer">
+      <div className="animeContainer">
         <Navbar />
         <Search className="searchContent" />
 
-        {/* <div className="movieContent">
-          <div className="moviePoster">
-            <img src={this.state.anime.attributes === null ? 'http://via.placeholder.com/640x960' : `https://image.tmdb.org/t/p/w640${this.state.movie.poster_path}`} alt={`${this.state.movie.title} poster`} className="movieImg" />
-            <h2 className="movieTitle">{this.state.movie.title}</h2>
+        <div className="animeContent">
+          <div className="animePoster">
+            <img src={this.state.anime.attributes.posterImage.original === null 
+              ? 'http://via.placeholder.com/640x960' 
+              : `${this.state.anime.attributes.posterImage.original}`} 
+              alt={`${this.state.anime.attributes.canonicalTitle} poster`} className="animeImg" />
+            <h2 className="animeTitle">{this.state.anime.attributes.canonicalTitle}</h2>
           </div>
 
-          <section className="movieDetails">
-            {this.state.movie.videos.results.length > 0 && 
-              <div className="ytPlayer ytContainer16x9 ytContainer4x3">
-                <iframe src={`https://www.youtube.com/embed/${this.state.movie.videos.results[0].key}`} title="movietrailer"></iframe>;
-              </div>
-            }
-            <ul className="movieDetails">
-              <li><span className="weight">Release date:</span> {this.state.movie.release_date}</li>
-              <li><span className="weight">Rating:</span> {this.state.movie.vote_average}</li>
+          <section className="animeDetails">
+            <div className="ytPlayer ytContainer16x9 ytContainer4x3">
+              <iframe src={`https://www.youtube.com/embed/${this.state.anime.attributes.youtubeVideoId}`} title="animetrailer"></iframe>;
+            </div>
+            <ul className="animeDetails">
+              <li><span className="weight">Release date:</span> {this.state.anime.attributes.startDate}</li>
+              <li><span className="weight">Rating:</span> {this.state.anime.attributes.averageRating}/100</li>
 
-              <li><span className="weight">Genres: </span> {this.state.movie.genres.map((element, index) => {
-                  if (index < this.state.movie.genres.length - 1) {
-                    return this.state.movie.genres[index].name + ', '
+              {/* <li><span className="weight">Genres: </span> {this.state.anime.genres.map((element, index) => {
+                  if (index < this.state.anime.genres.length - 1) {
+                    return this.state.anime.genres[index].name + ', '
                   } else {
-                    return this.state.movie.genres[index].name
+                    return this.state.anime.genres[index].name
                   }
                 })}
-              </li>
+              </li> */}
+              <li><span className="weight">Overview:</span> {this.state.anime.attributes.synopsis}</li>
             </ul>
-            <p>{this.state.movie.overview}</p>
           </section>
-        </div> */}
+        </div>
       </div>
     );
   }

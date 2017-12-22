@@ -1,27 +1,27 @@
-.movieContent {
+.animeContent {
   display: flex;
   flex-direction: column;
   margin-top: 25px;
 }
 
-.movieContainer {
+.animeContainer {
   width: 70%;
   margin: 0 auto;
 }
 
-.movieDetails {
+.animeDetails {
   order: 1;
 }
 
-.movieTitle {
+.animeTitle {
   margin: 0;
 }
 
-.movieDetails {
+.animeDetails {
   margin-top: 20px;
 }
 
-.movieDetails li {
+.animeDetails li {
   margin-bottom: 10px;
 }
 
@@ -29,11 +29,11 @@
   font-weight: 600;
 }
 
-.moviePoster {
+.animePoster {
   order: 2;
 }
 
-.movieImg {
+.animeImg {
   width: 100%;
   height: auto;
 }
@@ -62,19 +62,19 @@ iframe {
 }
 
 @media(min-width: 768px) {
-  .movieContent {
+  .animeContent {
     flex-direction: row;
   }
-  .movieDetails {
+  .animeDetails {
     flex: 2;
     order: 2;
   }
-  .moviePoster {
+  .animePoster {
     flex: 1;
     order: 1;
     padding-right: 20px;
   }
-  .movieImg {
+  .animeImg {
     width: 300px;
     height: auto;
   }
