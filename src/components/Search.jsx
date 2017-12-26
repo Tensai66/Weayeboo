@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {DebounceInput} from 'react-debounce-input';
+import { DebounceInput } from 'react-debounce-input';
 
 import SearchResults from './SearchResults';
 
@@ -24,7 +24,7 @@ class Search extends Component {
         response.json().then(data => {
           const results = data.data;
           this.setState({ results });
-          console.log(results);
+          // console.log(results);
         });
       })
       .catch(err => {

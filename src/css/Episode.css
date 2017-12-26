@@ -1,0 +1,10 @@
+.episodeContent {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+}
+
+.episodeContainer {
+  width: 70%;
+  margin: 0 auto;
+}
